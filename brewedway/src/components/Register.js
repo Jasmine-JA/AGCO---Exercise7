@@ -23,7 +23,7 @@ function Register({ registerForm, setRegisterForm, errors, handleRegister, setCu
                 <input
                   type="text"
                   value={registerForm.name}
-                  onChange={(e) => setRegisterForm({ ...registerForm, name: e.target.value })}
+                  onChange={(e) => setRegisterForm('name', e.target.value)}
                   className="form-input"
                   placeholder="John Doe"
                 />
@@ -38,7 +38,7 @@ function Register({ registerForm, setRegisterForm, errors, handleRegister, setCu
                 <input
                   type="email"
                   value={registerForm.email}
-                  onChange={(e) => setRegisterForm({ ...registerForm, email: e.target.value })}
+                  onChange={(e) => setRegisterForm('email', e.target.value)}
                   className="form-input"
                   placeholder="your@email.com"
                 />
@@ -53,7 +53,7 @@ function Register({ registerForm, setRegisterForm, errors, handleRegister, setCu
                 <input
                   type="password"
                   value={registerForm.password}
-                  onChange={(e) => setRegisterForm({ ...registerForm, password: e.target.value })}
+                  onChange={(e) => setRegisterForm('password', e.target.value)}
                   className="form-input"
                   placeholder="Minimum 6 characters"
                 />
@@ -68,7 +68,7 @@ function Register({ registerForm, setRegisterForm, errors, handleRegister, setCu
                 <input
                   type="password"
                   value={registerForm.confirmPassword}
-                  onChange={(e) => setRegisterForm({ ...registerForm, confirmPassword: e.target.value })}
+                  onChange={(e) => setRegisterForm('confirmPassword', e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleRegister()}
                   className="form-input"
                   placeholder="Re-enter password"
@@ -86,10 +86,7 @@ function Register({ registerForm, setRegisterForm, errors, handleRegister, setCu
             <p className="footer-text">
               Already have an account?{' '}
               <button
-                onClick={() => {
-                  setCurrentPage('login');
-                  setErrors({});
-                }}
+                onClick={() => setCurrentPage('login')}
                 className="link-btn"
               >
                 Login

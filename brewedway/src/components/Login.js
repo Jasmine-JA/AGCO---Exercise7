@@ -23,7 +23,7 @@ function Login({ loginForm, setLoginForm, errors, handleLogin, setCurrentPage, s
                 <input
                   type="email"
                   value={loginForm.email}
-                  onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
+                  onChange={(e) => setLoginForm('email', e.target.value)}
                   className="form-input"
                   placeholder="your@email.com"
                 />
@@ -38,7 +38,7 @@ function Login({ loginForm, setLoginForm, errors, handleLogin, setCurrentPage, s
                 <input
                   type="password"
                   value={loginForm.password}
-                  onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
+                  onChange={(e) => setLoginForm('password', e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
                   className="form-input"
                   placeholder="Enter your password"
@@ -56,10 +56,7 @@ function Login({ loginForm, setLoginForm, errors, handleLogin, setCurrentPage, s
             <p className="footer-text">
               Don't have an account?{' '}
               <button
-                onClick={() => {
-                  setCurrentPage('register');
-                  setErrors({});
-                }}
+                onClick={() => setCurrentPage('register')}
                 className="link-btn"
               >
                 Sign Up

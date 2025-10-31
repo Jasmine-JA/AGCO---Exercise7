@@ -54,6 +54,20 @@ function App() {
     return name.trim().length >= 2;
   };
 
+  const handleLoginFormChange = (field, value) => {
+    setLoginForm({ ...loginForm, [field]: value });
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: '' });
+    }
+  };
+
+  const handleRegisterFormChange = (field, value) => {
+    setRegisterForm({ ...registerForm, [field]: value });
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: '' });
+    }
+  };
+
   const validateRegistration = () => {
     const newErrors = {};
 
@@ -181,6 +195,27 @@ function App() {
       email: '',
       password: ''
     });
+    setErrors({});
+  };
+
+  const switchToLogin = () => {
+    setCurrentPage('login');
+    setRegisterForm({
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    });
+    setErrors({});
+  };
+
+  const switchToRegister = () => {
+    setCurrentPage('register');
+    setLoginForm({
+      email: '',
+      password: ''
+    });
+    setErrors({});
   };
 
   return (
@@ -188,10 +223,10 @@ function App() {
       {currentPage === 'login' && (
         <Login
           loginForm={loginForm}
-          setLoginForm={setLoginForm}
+          setLoginForm={handleLoginFormChange}
           errors={errors}
           handleLogin={handleLogin}
-          setCurrentPage={setCurrentPage}
+          setCurrentPage={switchToRegister}
           setErrors={setErrors}
         />
       )}
@@ -199,10 +234,10 @@ function App() {
       {currentPage === 'register' && (
         <Register
           registerForm={registerForm}
-          setRegisterForm={setRegisterForm}
+          setRegisterForm={handleRegisterFormChange}
           errors={errors}
           handleRegister={handleRegister}
-          setCurrentPage={setCurrentPage}
+          setCurrentPage={switchToLogin}
           setErrors={setErrors}
         />
       )}

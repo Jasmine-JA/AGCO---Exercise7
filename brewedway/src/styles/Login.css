@@ -4,7 +4,6 @@
   --primary-blue-light: #85c1e9;
 }
 
-/* Login.css */
 
 .login-container {
   min-height: 100vh;
@@ -95,7 +94,6 @@
   margin: 0 0 2rem 0;
 }
 
-/* Form Styles */
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -156,7 +154,6 @@
   gap: 0.25rem;
 }
 
-/* Submit Button */
 .submit-btn {
   width: 100%;
   padding: 1rem;
@@ -183,7 +180,6 @@
   transform: translateY(0);
 }
 
-/* Footer */
 .form-footer {
   margin-top: 2rem;
   padding-top: 1.5rem;
@@ -214,7 +210,6 @@
   text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 640px) {
   .login-container {
     padding: 1rem;
